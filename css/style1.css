@@ -89,4 +89,26 @@ margin-bottom: 15px;
 }
 
 
+ /* Modal için genel stiller */
+.modal {
+    display: none; /* Varsayılan olarak modalı gizle */
+    position: fixed; /* Sabit pozisyon */
+    z-index: 1; /* Üstte kalmasını sağla */
+    left: 0;
+    top: 0;
+    width: 100%; /* Tam ekran kaplasın */
+    height: 100%; /* Tam ekran kaplasın */
+    overflow: auto; /* Gerekirse kaydırma çubuğu */
+    background-color: rgba(0,0,0,0.4); /* Siyah arka plan */
+}
 
+/* Modal içeriği */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Orta konumlandırma */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 25%; /* Çoğu ekranı kaplayacak genişlik */
+    text-align: center;
+    color:blue
+}
