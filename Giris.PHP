@@ -13,11 +13,11 @@
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="field input">
                     <label for="email">E-mail</label>
-                    <input type="email" name="email" id="email" required>
+                    <input type="email" name="email" id="email" required autofocus autocomplete="off">
                 </div>
                 <div class="field input">
                     <label for="password">Şifre</label>
-                    <input type="password" name="password" id="password" required>
+                    <input type="password" name="password" id="password" required autocomplete="off">
                 </div>
                 <div class="field">
                     <input type="submit" name="submit" class="buton" value="Giriş Yap">
