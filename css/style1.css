@@ -1,114 +1,145 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*{
-padding: 0;
-margin: 0;
-box-sizing: border-box;
-font-family: 'Poppins',sans-serif;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background: url('Arkaplan.jpeg') no-repeat center center fixed;
+        background-size: cover;
+        height: 100vh;
+    }
+
+    .container {
+        color: #0056b3; /* Bootstrap primary blue */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 90vh;
+    }
+
+    .box {
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1), 0 32px 64px -48px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 500px; /* Genişlik artırıldı */
+    }
+
+    .form-box {
+        margin: 0 auto; /* Otomatik merkezleme */
+    }
+
+    .form-box header {
+        font-size: 30px; /* Başlık font boyutu artırıldı */
+        font-weight: 700;
+        padding-bottom: 15px;
+        margin-bottom: 20px;
+        color: #333;
+        text-align: center; /* Başlık merkezde */
+    }
+
+    .form-box form .field {
+        display: flex;
+        margin-bottom: 15px; /* Daha fazla boşluk */
+        flex-direction: column;
+    }
+
+    .form-box form .input,
+    .form-box form .btn-primary {
+        height: 50px; /* Input yüksekliği artırıldı */
+        font-size: 18px; /* Font boyutu artırıldı */
+        padding: 10px; /* Daha fazla padding */
+    }
+
+    .buton {
+        background: #0056b3; /* Daha belirgin renk */
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 600;
+        transition: all 0.3s;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: #004494; /* Hover rengi daha koyu */
+    }
+    .modal {
+        display: none; /* Varsayılan olarak modalı gizle */
+        position: fixed; /* Sabit pozisyon */
+        z-index: 1; /* Üstte kalmasını sağla */
+        left: 0;
+        top: 0;
+        width: 100%; /* Tam ekran kaplasın */
+        height: 100%; /* Tam ekran kaplasın */
+        overflow: auto; /* Gerekirse kaydırma çubuğu */
+        background-color: rgba(0,0,0,0.4); /* Siyah arka plan */
+    }
+
+    /* Modal içeriği */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* Orta konumlandırma */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 25%; /* Çoğu ekranı kaplayacak genişlik */
+        text-align: center;
+        color:blue
+    }
+    .navbar {
+        background: rgb(15, 107, 228);
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+        color: white;
+        font-size: 20px;
+        transition: background-color 0.3s;
+    }
+
+    .navbar-dark .navbar-nav .nav-link:hover,
+    .navbar-dark .navbar-nav .nav-link.active {
+        background: rgb(46, 77, 136);
+        border-radius: 5px;
+    }
+
+/* Büyük cihazlar için (geniş ekranlar, 1200px ve üzeri) */
+@media (min-width: 767px) {
+    .card {
+        width: 100%; /* Daha büyük ekranlarda genişlik */
+        width: 400px;
+        display: flex;
+        height:100%;
+        left: -50%;
+        top: -40%;
+
+    }
 }
 
-
-body{
-    background: url(Arkaplan.jpeg) no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-}
-.container{
-color:blue;
-display: flex;
-align-items: center;
-justify-content: center;
-min-height: 90vh;
+/* Çok küçük cihazlar için (telefonlar, <768px) */
+@media (max-width: 767px) {
+    .card {
+        width: 100%; /* Telefonlarda genişlik */
+        width: 300px;
+    }
 }
 
-.box
-{
-background:white;
-display: flex;
-flex-direction: column;
-padding: 25px 25px;
-border-radius: 20px;
-box-shadow: 0 0 128px 0 rgba(0,0,0,0.1), 0 32px 64px -48px rgb(0,0,0,0.1)
-}
+    .form-control, .btn-primary {
+        padding: 10px; /* Daha fazla padding */
+        font-size: 16px; /* Daha büyük font boyutu */
+    }
 
-.form-box
-{
-width: 450px;
-margin:0px 10px;
-}
+    .btn-primary {
+        width: 100%; /* Butonu genişlet */
+        border-radius: 5px; /* Butonun kenarlarını yuvarlat */
+    }
 
-.form-box header
-{
-font-size:25px;
-font-weight: 600;
-padding-bottom: 10px;
-border-bottom: 1px solid white;
-margin-bottom: 10px;
-}
-.form-box form .field
-{
-display: flex;
-margin-bottom: 10px;
-flex-direction: column;
-
-}
-
-.form-box form .input
-{
-height: 40px;
-width:  100%;
-font-size: 16px;
-padding: 0 10px;
-border-radius:5px;
-border: 1px solid white;
-outline: none;
-}
-
-.buton
-{
-height: 40px;
-background: white;
-border: 0;
-border-radius: 5px;
-color: blue;
-font-size:15px;
-cursor: pointer;
-transition: all 0.3s;
-margin-top: 10px;
-padding: 0px 10px;
-}
-
-.btn:hover{
-opacity:  0.82;
-}
-.submit
-{
-width: 100%;
-}
-.links{
-margin-bottom: 15px;
-}
-
-
- /* Modal için genel stiller */
-.modal {
-    display: none; /* Varsayılan olarak modalı gizle */
-    position: fixed; /* Sabit pozisyon */
-    z-index: 1; /* Üstte kalmasını sağla */
-    left: 0;
-    top: 0;
-    width: 100%; /* Tam ekran kaplasın */
-    height: 100%; /* Tam ekran kaplasın */
-    overflow: auto; /* Gerekirse kaydırma çubuğu */
-    background-color: rgba(0,0,0,0.4); /* Siyah arka plan */
-}
-
-/* Modal içeriği */
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* Orta konumlandırma */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 25%; /* Çoğu ekranı kaplayacak genişlik */
-    text-align: center;
-    color:blue
-}
+    .container {
+        max-width: 800px; /* Konteynerin maksimum genişliği, daha geniş ekranlarda form daha iyi görünecek */
+    }

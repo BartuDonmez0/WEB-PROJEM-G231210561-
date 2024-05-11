@@ -5,18 +5,16 @@ body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden; /* Yatay kaydırmayı engelle */
 }
 
-.container {
+body {
     background: url(Arkaplan.jpeg) no-repeat center center fixed;
-    background-size: cover;
-    min-height: 100vh;
-    width: 100%;
-    padding: 0;
+    background-size: cover; /* Arka planı ekranı kaplayacak şekilde ayarla */
 }
 
 .navbar {
-    background: rgb(35, 63, 99);
+    background: rgb(15, 107, 228);
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -27,20 +25,127 @@ body, html {
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
-    background: rgb(81, 89, 104);
+    background: rgb(46, 77, 136);
     border-radius: 5px;
-}
-
-.text-center h1 {
-    color: white;
-    font-size: 50px;
-    font-weight: bold;
-    margin: 20px 0;
 }
 
 .text-center h4 {
     color: white;
-    font-size: 25px;
+    font-size: 50px; /* Başlık boyutu */
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.text-center h6 {
+    color: white;
+    font-size: 25px; /* Alt başlık boyutu */
     font-weight: bold;
     margin-bottom: 20px;
+}
+.footer {
+    width: 100%;
+    padding: 20px 0;
+    background-color: #f8f9fa; /* Footer arka plan rengi */
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1); /* Gölge efekti */
+    position: relative;
+    bottom: 0;
+}
+
+.container {
+    max-width: 480px; /* Konteyner genişliğini azalt */
+    margin: auto; /* Merkezleme */
+    text-align: center; /* Metin hizalama */
+}
+
+.form-group {
+    margin-bottom: 10px; /* Alt elemanlar arasında boşluk */
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%; /* Genişlik */
+    padding: 8px; /* İç padding */
+    font-size: 14px; /* Font boyutunu küçült */
+}
+
+.btn {
+    padding: 8px 16px; /* Düğme padding */
+    font-size: 14px; /* Düğme font boyutu */
+    margin-top: 5px; /* Düğme üst boşluk */
+}
+@media (max-width: 600px) {
+    .content-section {
+        flex-direction: column; /* Küçük ekranlarda sütun düzenine geç */
+    }
+
+    .content-section .text, .content-section .image {
+        order: initial; /* Sırayı başa al */
+    }
+}
+.content-section {
+    display: flex;
+    flex-wrap: wrap; /* Responsive yapısı */
+    margin: 20px 0;
+    justify-content: center;
+    display: inline-block;
+    justify-content: center;  /* Yatay olarak ortalar */
+    align-items: center;
+}
+
+.content-section div {
+    flex: 1; /* İçerik kutularını esnek yap */
+    min-width: 300px; /* Minimum genişlik */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.content-section .text {
+    order: 2; /* Metin bölümünün sırası */
+    padding: 10px 20px;
+    display: inline-block;
+    backdrop-filter: blur(10px); /* 10px'lik blur efekti */
+    background-color: transparent;
+    color:white;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+@media(min-width: 768px)
+{.content-section .image {
+    width: 50%;
+    padding: 20px;
+    order: 1; /* Resim bölümünün sırası */
+    background: url('path/to/your/image.jpg') no-repeat center center;
+    background-size: cover;
+    justify-content: center;  /* Yatay olarak ortalar */
+    align-items: center;
+    display: block;
+    margin: auto;
+}
+}
+@media  (max-width: 768px)
+{ .content-section .image
+    {
+    width: 50%;
+    padding: 20px;
+    order: 1; /* Resim bölümünün sırası */
+    background: url('path/to/your/image.jpg') no-repeat center center;
+    background-size: cover;
+}
+}
+.content-section .image img, .content-section .image iframe {
+    width: 100%;
+    padding: 0;
+    border: 5px solid white; /* Resimlere beyaz çerçeve ekle */
+}
+.container {
+    max-width: 960px; /* Konteynerin maksimum genişliği */
+    margin: auto; /* Merkezleme yap */
+    padding: 20px; /* İç boşluk */
+    backdrop-filter: blur(10px); /* Arka planı bulanıklaştır */
+    color: white; /* Yazı rengi beyaz */
+    font-weight: bold; /* Yazıları kalın yap */
+    border-radius: 8px; /* Kenarları yuvarlaklaştır */
+    text-align: center; /* Metinleri ortala */
 }

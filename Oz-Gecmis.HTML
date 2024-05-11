@@ -3,43 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ÖZ Geçmiş</title>
+    <title>Öz Geçmiş</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Bootstrap CSS ekleme -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="https://www.sakarya.edu.tr">
-                <img src="css/logo-sakarya-universitesi.png" alt="LOGO" title="Sakarya Üniversitesi Logosudur" style="height: 40px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="Bartu_Dönmez.HTML">Hakkinda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">OzGecmis Sayfasi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Memleketim.HTML">Memleketim</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="ilgi-alanlarim.HTML">Ilgi Alanlarim</a>
-                    </li>
-                </ul>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="https://www.sakarya.edu.tr">
+                    <img src="css/logo-sakarya-universitesi.png" alt="LOGO" title="Sakarya Üniversitesi Logosudur" style="height: 40px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="Bartu_Dönmez.HTML">Hakkında</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Özgeçmiş</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Memleketim.HTML">Memleketim</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ilgi-alanlarim.HTML">İlgi Alanlarım</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Mirasimiz.HTML">Mirasımız</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="İletisim-Sayfasi.HTML">İletişim</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-    <div class="container text-center mt-5">
-        <h1>Sayfama Hos Geldiniz</h1>
-        <h4>Hazirlayan: Bartu Dönmez</h4>
-    </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="text-center mt-5">
+            <h1>Bartu Dönmez</h1>
+            <p>Özgeçmiş</p>
+        </section>
+<br>
+        <section class="personal-info mb-4">
+            <h2>Kişisel Bilgiler</h2>
+            <p>Adres: Kocaeli/İzmit Yenişehir mah. Çayırlı Sok. No:12</p>
+            <p>Telefon: 0544 227 8841</p>
+            <p>E-posta: bartudonmezz0@gmail.com</p>
+        </section>
+
+        <section class="education mb-4">
+            <h2>Eğitim</h2>
+            <ul>
+                <li>Sakarya Üniversitesi - Bilgisayar Mühendisliği 1.Sınıf Öğrencisi</li>
+                <li>Ali Fuat Başgil Sosyal Bilimler Lisesi - Sayısal (2023)</li>
+            </ul>
+        </section>
+
+        <section class="experience mb-4">
+            <h2>İş Deneyimi</h2>
+            <ul>
+                <li>Şirket Adı - Pozisyon (Çalışma Yılları)</li>
+            </ul>
+        </section>
+
+        <section class="skills mb-4">
+            <h2>Yetenekler</h2>
+            <ul>
+                <li>Yetenek 1</li>
+                <li>Yetenek 2</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer text-center">
+        <p>&copy; 2024 Bartu Dönmez. Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
