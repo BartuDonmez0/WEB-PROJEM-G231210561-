@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style1.css">
-    <!-- Bootstrap CSS ekleme -->
+    <!-- Bootstrap CSS ekleme linki -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Hoş Geldiniz</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
+        <div class="container-fluid">  <!-- Üst tarafta bulunan konteynır kısmını tasarladım ve uyguladım ve responsive bir yapıda yaptım.-->
             <a class="navbar-brand" href="https://www.sakarya.edu.tr">
                 <img src="css/logo-sakarya-universitesi.png" alt="LOGO" title="Sakarya Üniversitesi Logosudur" style="height: 40px;">
             </a>

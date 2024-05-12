@@ -149,3 +149,21 @@ textarea {
     border-radius: 8px; /* Kenarları yuvarlaklaştır */
     text-align: center; /* Metinleri ortala */
 }
+/* Tüm başlıkları ortala */
+h1{
+    text-align: center;
+}
+
+/* Container içindeki metin içeriğini sağa daya */
+.container p, .container ul, .container ol, .container dl {
+    text-align: left;
+}
+
+h3{
+text-align: left;
+}
+.alt-kısım
+{
+text-align: center;
+color:white;
+}

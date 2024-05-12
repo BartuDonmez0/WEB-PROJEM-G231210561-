@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İletisim-Sayfasi</title>
+    <title>İletişim Sayfası</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Bootstrap CSS -->
+     <!-- Bootstrap CSS linki -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
+        <div class="container-fluid">  <!-- Üst tarafta bulunan konteynır kısmını tasarladım ve uyguladım ve responsive bir yapıda yaptım.-->
             <a class="navbar-brand" href="https://www.sakarya.edu.tr">
                 <img src="css/logo-sakarya-universitesi.png" alt="LOGO" title="Sakarya Üniversitesi Logosudur" style="height: 40px;">
             </a>
@@ -28,7 +26,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="Oz-Gecmis.HTML">OzGecmis</a>
                     </li>
-                    <li class="nav-item">
+                    <li the="nav-item">
                         <a class="nav-link" href="Memleketim.HTML">Memleketim</a>
                     </li>
                     <li class="nav-item">
@@ -44,6 +42,116 @@
             </div>
         </div>
     </nav>
+    <div id="app" class="container my-5">
+        <h2>İletişim Formu</h2>
+        <form @submit.prevent="submitForm" novalidate>
+            <div class="mb-3">
+                <label for="name" class="form-label">Adınız:</label>
+                <input type="text" class="form-control" id="name" v-model="form.name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">E-posta:</label>
+                <input type="email" class="form-control" id="email" v-model="form.email" required>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Telefon Numaranız:</label>
+                <input type="text" class="form-control" id="phone" v-model="form.phone">
+            </div>
+            <div class="mb-3">
+                <label>Cinsiyetiniz:</label>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="male" value="Erkek" v-model="form.gender">
+                    <label class="form-check-label" for="male">Erkek</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="female" value="Kadın" v-model="form.gender">
+                    <label class="form-check-label" for="female">Kadın</label>
+                </div>
+                <div class="form-check">
+                    <input type="radio" class="form-check-input" id="no_answer" value="Belirtmek İstemiyorum" v-model="form.gender" checked>
+                    <label class="form-check-label" for="no_answer">Belirtmek İstemiyorum</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Mesajınız:</label>
+                <textarea class="form-control" id="message" rows="3" v-model="form.message" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="website_feedback" class="form-label">Sayfa Değerlendirmesi:</label>
+                <select class="form-select" id="website_feedback" v-model="form.feedback">
+                    <option value="Çok Beğendim">Sayfanızı çok beğendim</option>
+                    <option value="Ortalama">Sayfanız ortalama olmuş</option>
+                    <option value="Kötü">Sayfanız kötü olmuş</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="file" class="form-label">Dosya Yükleyin:</label>
+                <input type="file" class="form-control" id="file" @change="fileChanged">
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="confirm" v-model="form.confirm" required>
+                <label class="form-check-label" for="confirm">Gönderilen verilerin bana ait olduğunu onaylıyorum.</label>
+            </div>
+            <button type="submit" class="btn btn-primary" :disabled="!form.confirm">Gönder</button>
+            <button type="button" class="btn btn-secondary" @click="resetForm">Temizle</button>
+        </form>
+        <p class="mt-3">
+            <a href="İletisim-Sayfasi-Sonuc.HTML">İletişim formu sonuçlarını görmek için tıklayınız.</a>
+        </p>
+    </div>
+
+    <script> //Javascript ile kodların vue.js yardımı ile gönderilen iletişim bilgilerinin alındığı kısım.
+        new Vue({
+            el: '#app',
+            data: {
+                form: {
+                    name: '',
+                    email: '',
+                    phone: '',
+                    gender: 'Belirtmek İstemiyorum',
+                    message: '',
+                    feedback: 'Çok Beğendim',
+                    confirm: false,
+                    fileContent: null,
+                    fileName: '',
+                    fileType: ''
+                }
+            },
+            methods: {
+                submitForm() {
+                    if (this.form.confirm && this.form.name && this.form.email.includes('@')) {
+                        localStorage.setItem('formData', JSON.stringify(this.form));
+                        window.location.href = 'İletisim-Sayfasi-Sonuc.HTML'; // Sonuç sayfasına yönlendir
+                    } else {
+                        alert('Lütfen tüm alanları doğru bir şekilde doldurun ve onay kutusunu işaretleyin.');
+                    }
+                },
+                resetForm() {
+                    this.form = {
+                        name: '',
+                        email: '',
+                        phone: '',
+                        gender: 'Belirtmek İstemiyorum',
+                        message: '',
+                        feedback: 'Çok Beğendim',
+                        confirm: false,
+                        fileContent: null,
+                        fileName: '',
+                        fileType: ''
+                    };
+                },
+                fileChanged(event) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        this.form.fileContent = e.target.result; // Dosya içeriğini base64 olarak kaydet
+                        this.form.fileName = event.target.files[0].name;
+                        this.form.fileType = event.target.files[0].type;
+                    };
+                    reader.readAsDataURL(event.target.files[0]);
+                }
+            }
+        });
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

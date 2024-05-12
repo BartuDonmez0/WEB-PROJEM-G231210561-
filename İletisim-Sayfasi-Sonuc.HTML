@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İletisim-Sayfasi-Sonuc</title>
+    <title>İletişim Sayfası Sonucu</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
+       <!-- Google Fonts linki -->
     <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
+        <div class="container-fluid"> <!-- Üst tarafta bulunan konteynır kısmını tasarladım ve uyguladım ve responsive bir yapıda yaptım.-->
             <a class="navbar-brand" href="https://www.sakarya.edu.tr">
                 <img src="css/logo-sakarya-universitesi.png" alt="LOGO" title="Sakarya Üniversitesi Logosudur" style="height: 40px;">
             </a>
@@ -26,7 +25,7 @@
                         <a class="nav-link" href="Bartu_Dönmez.HTML">Hakkinda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Oz-Gecmis.HTML">OzGecmis</a>
+                        <a class="nav-link" href="OzGecmis.HTML">OzGecmis</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="Memleketim.HTML">Memleketim</a>
@@ -34,16 +33,47 @@
                     <li class="nav-item">
                         <a class="nav-link" href="ilgi-alanlarim.HTML">Ilgi Alanlarim</a>
                     </li>
-                    <li class="nav-item">
+                    <li the="nav-item">
                         <a class="nav-link" href="Mirasimiz.HTML">Mirasimiz</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">İletişim</a>
+                        <a class="nav-link active" href="İletisim-Sayfasi.HTML">İletişim</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <div id="resultApp" class="container my-5">
+        <h2>Gönderilen İletişim Bilgileri</h2>
+        <div v-if="receivedData">
+            <p><strong>Ad:</strong> {{ receivedData.name }}</p>
+            <p><strong>E-Posta:</strong> {{ receivedData.email }}</p>
+            <p><strong>Telefon:</strong> {{ receivedData.phone }}</p>
+            <p><strong>Cinsiyet:</strong> {{ receivedData.gender }}</p>
+            <p><strong>Mesaj:</strong> {{ receivedData.message }}</p>
+            <p><strong>Sayfa Değerlendirmesi:</strong> {{ receivedData.feedback }}</p>
+        </div>
+        <div v-if="receivedData.fileType && receivedData.fileContent">
+            <h3>Dosya Önizlemesi:</h3>
+            <img v-if="receivedData.fileType.includes('image')" :src="receivedData.fileContent" alt="Yüklenen Resim">
+            <pre v-else-if="receivedData.fileType.includes('text')">{{ receivedData.fileContent }}</pre>
+        </div>
+        <div v-else>
+            <p>Bilgiler alınırken bir hata oluştu veya bilgi gönderilmedi.</p>
+        </div>
+    </div>
+
+    <script>// Javascript ile gönderilen dosyaları kaydetmenin yapıldığı kısım.
+        new Vue({
+            el: '#resultApp',
+            data: {
+                receivedData: null
+            },
+            mounted() {
+                this.receivedData = JSON.parse(localStorage.getItem('formData'));
+            }
+        });
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
