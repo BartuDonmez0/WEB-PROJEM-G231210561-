@@ -162,8 +162,50 @@ h1{
 h3{
 text-align: left;
 }
-.alt-kısım
-{
-text-align: center;
-color:white;
+/* Önceki CSS tanımları aynı kalır */
+.alt-kısım {
+    text-align: center;
+    color: white;
+    background-color: rgba(0,0,0,0.5); /* Saydamlık ekleyerek okunabilirliği arttır */
+    padding: 20px;
+    border-radius: 8px; /* Kenarları yuvarlak */
+}
+
+/* Fotoğraflar için responsive ve tıklanabilir linkler */
+.carousel-inner a img {
+    width: 100%; /* Tam genişlik */
+    height: auto; /* Yükseklik otomatik */
+    cursor: pointer; /* İmleç pointer */
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+    .carousel-inner a img {
+        height: 200px; /* Küçük ekranlar için yüksekliği ayarla */
+    }
+}
+/* Carousel resim boyutlarını çeşitli ekran boyutlarına göre ayarlayan media sorguları */
+@media (min-width: 992px) {
+    .carousel-inner a img {
+        max-height: 500px; /* Büyük ekranlarda resim yüksekliği */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .carousel-inner a img {
+        max-height: 400px; /* Orta boy ekranlar için resim yüksekliği */
+    }
+}
+
+@media (max-width: 767px) {
+    .carousel-inner a img {
+        max-height: 300px; /* Küçük ekranlar için resim yüksekliği */
+    }
+}
+
+/* Küçük cihazlarda daha fazla alan tasarrufu sağlamak için diğer stil düzenlemeleri */
+@media (max-width: 576px) {
+    .carousel-inner a img {
+        max-height: 200px; /* Çok küçük ekranlar için resim yüksekliği */
+    }
 }
