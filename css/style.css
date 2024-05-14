@@ -209,3 +209,24 @@ text-align: left;
         max-height: 200px; /* Çok küçük ekranlar için resim yüksekliği */
     }
 }
+
+.bilgiler-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bilgi-text {
+    flex: 1; /* Kişisel bilgiler içeriğine esneklik sağlar */
+    padding-right: 20px; /* Sağ taraftaki fotoğrafa boşluk bırakır */
+}
+
+.bilgi-foto {
+    flex-basis: 150px; /* Fotoğraf için belirlenen genişlik */
+}
+
+.vesikalik {
+    width: 100%; /* Konteyner genişliğine uyum sağlar */
+    height: auto; /* Yüksekliği otomatik ayarlar */
+    border-radius: 10px; /* Fotoğraf köşelerini yuvarlak yapar */
+}
