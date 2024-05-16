@@ -143,3 +143,14 @@
     .container {
         max-width: 800px; /* Konteynerin maksimum genişliği, daha geniş ekranlarda form daha iyi görünecek */
     }
+.gecis-box
+{
+    display: flex; /* Flexbox kullanarak içerikleri yerleştir */
+    flex-direction: column; /* İçerikleri dikey olarak sırala */
+    justify-content: center; /* İçerikleri dikey eksende merkeze al */
+    align-items: center; /* İçerikleri yatay eksende merkeze al */
+    height: 100vh; /* Tam ekran yüksekliği kaplasın */
+    text-align: center; /* Tüm metinleri merkeze hizala */
+    padding: 20px; /* İçeriğe çevresinden boşluk ver */
+    box-sizing: border-box; /* Padding ve border dahil toplam genişlik ve yükseklik hesaplamaları */
+}

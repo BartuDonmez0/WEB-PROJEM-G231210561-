@@ -9,7 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts linki -->
     <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">  <!-- Üst tarafta bulunan konteynır kısmını tasarladım ve uyguladım ve responsive bir yapıda yaptım.-->
@@ -43,10 +44,49 @@
             </div>
         </div>
     </nav>
-    <div class="container text-center mt-5">
-        <h1>Sayfama Hos Geldiniz</h1>
-        <h4>Hazirlayan: Bartu Dönmez</h4>
-    </div>
+    <div>
+        <!-- arama containerı -->
+        <div class = "search-container ">
+            <div class = "search-element">
+                <h3>FİLM ARAYIN:</h3>
+                <input type = "text" class = "form-control"  placeholder="aradığınız film..." id = "movie-search-box" onkeyup="findMovies()" onclick = "findMovies()">
+                <div class = "search-list mt-1" id = "search-list">
+                    <!-- list burada -->
+                <div class = "search-list-item "></div>
+                </div>
+            </div>
+        </div>
+        <!-- arama containerı son -->
+
+        <!-- sonuç containerı -->
+        <div class="container">
+            <div class="result-container p-0">
+                <div class="result-grid" id="result-grid">
+                    <!-- Film bilgileri burada yer alır -->
+                    <div class="movie-poster">
+                        <a href="https://tr.wikipedia.org/wiki/Prens_(dizi)" target="_blank">
+                        <img class="img-fluid" src="css/Prens_dizi_afiş.jpg" alt="Prens dizisi posteri" title="Prens Dizi Afiş">
+                    </a>
+                    </div>
+                    <div class="movie-info p-3 m-0">
+                        <h1 class="display-5">FAVORİ DİZİM:</h1>
+                        <h3 class="movie-title">PRENS</h3>
+                        <ul class="movie-misc-info">
+                            <li class="year m-2">YIL: 2023</li>
+                            <li class="released m-2">YAYINLANMA TARİHİ: 16 Haziran 2023</li>
+                        </ul>
+                        <p class="genre"><b>TÜR:</b> Komedi</p>
+                        <p class="writer"><b>SENARİSTLER:</b> Giray Altınok, Kerem Özdoğan</p>
+                        <p class="actors"><b>OYUNCULAR:</b> Giray Altınok, Serdar Orçin, Ceyda Düvenci, Aslı Tandoğan, Hüseyin Avni Danyal</p>
+                        <p class="plot"><b>KONU:</b> Bongomia isimli hayali bir Orta Çağ krallığında geçen, komedi unsurları taşıyan ve toplumsal mesajlar veren bir dizi.</p>
+                        <p class="language"><b>DİL:</b> Türkçe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- sonuç containerı sonu -->
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src = "ilgialanlarim.js"></script>
 </body>
 </html>

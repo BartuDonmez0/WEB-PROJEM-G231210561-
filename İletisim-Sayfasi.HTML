@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İletişim Sayfası</title>
     <link rel="stylesheet" href="css/style.css">
-     <!-- Bootstrap CSS linki -->
+    <!-- Bootstrap CSS linki -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 </head>
@@ -44,114 +44,94 @@
     </nav>
     <div id="app" class="container my-5">
         <h2>İletişim Formu</h2>
-        <form @submit.prevent="submitForm" novalidate>
+        <form id="contactForm" action="İletisim-Sayfasi-Sonuc.php" method="GET" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="name" class="form-label">Adınız:</label>
-                <input type="text" class="form-control" id="name" v-model="form.name" required>
+                <input type="text" class="form-control" id="name" name="name" required>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">E-posta:</label>
-                <input type="email" class="form-control" id="email" v-model="form.email" required>
+                <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="mb-3">
                 <label for="phone" class="form-label">Telefon Numaranız:</label>
-                <input type="text" class="form-control" id="phone" v-model="form.phone">
+                <input type="text" class="form-control" id="phone" name="phone">
             </div>
             <div class="mb-3">
                 <label>Cinsiyetiniz:</label>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" id="male" value="Erkek" v-model="form.gender">
+                    <input type="radio" class="form-check-input" id="male" name="gender" value="Erkek">
                     <label class="form-check-label" for="male">Erkek</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" id="female" value="Kadın" v-model="form.gender">
+                    <input type="radio" class="form-check-input" id="female" name="gender" value="Kadın">
                     <label class="form-check-label" for="female">Kadın</label>
                 </div>
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" id="no_answer" value="Belirtmek İstemiyorum" v-model="form.gender" checked>
+                    <input type="radio" class="form-check-input" id="no_answer" name="gender" value="Belirtmek İstemiyorum" checked>
                     <label class="form-check-label" for="no_answer">Belirtmek İstemiyorum</label>
                 </div>
             </div>
             <div class="mb-3">
                 <label for="message" class="form-label">Mesajınız:</label>
-                <textarea class="form-control" id="message" rows="3" v-model="form.message" required></textarea>
+                <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
             </div>
             <div class="mb-3">
-                <label for="website_feedback" class="form-label">Sayfa Değerlendirmesi:</label>
-                <select class="form-select" id="website_feedback" v-model="form.feedback">
-                    <option value="Çok Beğendim">Sayfanızı çok beğendim</option>
-                    <option value="Ortalama">Sayfanız ortalama olmuş</option>
-                    <option value="Kötü">Sayfanız kötü olmuş</option>
+                <label for="files" class="form-label">Dosya Yükleyin (birden fazla seçebilirsiniz):</label>
+                <input type="file" class="form-control" id="files" name="files[]" multiple>
+            </div>
+            <div class="mb-3">
+                <label for="feedback" class="form-label">Sayfa Değerlendirmesi:</label>
+                <select class="form-select" id="feedback" name="feedback">
+                    <option value="Çok Güzel Sayfa">Çok Güzel Sayfa</option>
+                    <option value="Ortalama Olmuş">Ortalama Olmuş</option>
+                    <option value="Kötü Olmuş">Kötü Olmuş</option>
                 </select>
             </div>
             <div class="mb-3">
-                <label for="file" class="form-label">Dosya Yükleyin:</label>
-                <input type="file" class="form-control" id="file" @change="fileChanged">
+                <label for="university" class="form-label">Üniversite:</label>
+                <input type="text" class="form-control" list="universiteler" id="university" name="university" required>
+                <datalist id="universiteler">
+                    <option value="Sakarya Üniversitesi">Sakarya Üniversitesi</option>
+                    <option value="Sakarya Uyg. Bil. Üniversitesi">Sakarya Uyg. Bil. Üniversitesi</option>
+                    <option value="Kocaeli Üniversitesi">Kocaeli Üniversitesi</option>
+                    <option value="İstanbul Teknik Üniversitesi">İstanbul Teknik Üniversitesi</option>
+                </datalist>
             </div>
             <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="confirm" v-model="form.confirm" required>
+                <input type="checkbox" class="form-check-input" id="confirm" name="confirm" required>
                 <label class="form-check-label" for="confirm">Gönderilen verilerin bana ait olduğunu onaylıyorum.</label>
             </div>
-            <button type="submit" class="btn btn-primary" :disabled="!form.confirm">Gönder</button>
-            <button type="button" class="btn btn-secondary" @click="resetForm">Temizle</button>
+            <button type="button" class="btn btn-primary" @click="validateFormVue">Gönder (Vue.js Doğrulama)</button>
+            <button type="button" class="btn btn-primary" onclick="validateFormJS()">Gönder (JS Doğrulama)</button>
+            <button type="reset" class="btn btn-primary">Sıfırla</button>
         </form>
-        <p class="mt-3">
-            <a href="İletisim-Sayfasi-Sonuc.HTML">İletişim formu sonuçlarını görmek için tıklayınız.</a>
-        </p>
     </div>
-
-    <script> //Javascript ile kodların vue.js yardımı ile gönderilen iletişim bilgilerinin alındığı kısım.
+    <script>
         new Vue({
             el: '#app',
-            data: {
-                form: {
-                    name: '',
-                    email: '',
-                    phone: '',
-                    gender: 'Belirtmek İstemiyorum',
-                    message: '',
-                    feedback: 'Çok Beğendim',
-                    confirm: false,
-                    fileContent: null,
-                    fileName: '',
-                    fileType: ''
-                }
-            },
             methods: {
-                submitForm() {
-                    if (this.form.confirm && this.form.name && this.form.email.includes('@')) {
-                        localStorage.setItem('formData', JSON.stringify(this.form));
-                        window.location.href = 'İletisim-Sayfasi-Sonuc.HTML'; // Sonuç sayfasına yönlendir
-                    } else {
-                        alert('Lütfen tüm alanları doğru bir şekilde doldurun ve onay kutusunu işaretleyin.');
-                    }
-                },
-                resetForm() {
-                    this.form = {
-                        name: '',
-                        email: '',
-                        phone: '',
-                        gender: 'Belirtmek İstemiyorum',
-                        message: '',
-                        feedback: 'Çok Beğendim',
-                        confirm: false,
-                        fileContent: null,
-                        fileName: '',
-                        fileType: ''
-                    };
-                },
-                fileChanged(event) {
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        this.form.fileContent = e.target.result; // Dosya içeriğini base64 olarak kaydet
-                        this.form.fileName = event.target.files[0].name;
-                        this.form.fileType = event.target.files[0].type;
-                    };
-                    reader.readAsDataURL(event.target.files[0]);
-                }
+                validateFormVue() {
+    var form = document.getElementById('contactForm');
+    if (!form['confirm'].checked || !form['name'].value || !form['email'].value.includes('@') || !form['message'].value || !form['university'].value) {
+        alert('Lütfen tüm alanları doldurduğunuzdan ve verilerin size ait olduğunu onayladığınızdan emin olun.');
+    } else {
+        form.submit();
+    }
+}
             }
         });
-        </script>
+
+        function validateFormJS() {
+    var form = document.getElementById('contactForm');
+    if (!form['confirm'].checked || !form['name'].value || !form['email'].value.includes('@') || !form['message'].value || !form['university'].value) {
+        alert('Lütfen tüm alanları doldurduğunuzdan ve verilerin size ait olduğunu onayladığınızdan emin olun.');
+    } else {
+        form.submit();
+    }
+}
+
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
